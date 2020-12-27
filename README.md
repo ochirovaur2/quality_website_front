@@ -2,7 +2,7 @@
 
 <p align="center">
  <a href="#">
-    <img src="./readme_imag/img.jpg" alt="img">
+    <img src="./readme_img/img.jpg" alt="img">
 </a>
 </p>
 
