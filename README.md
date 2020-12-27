@@ -1,6 +1,10 @@
 # <h3 align="center">Admin panel of NPS Feedback site front part</h3>
 
-
+<p align="center">
+ <a href="#">
+    <img src="./readme_imag/img.jpg" alt="img">
+</a>
+</p>
 
 ## Short description
 Front part of admin panel of NPS website:
