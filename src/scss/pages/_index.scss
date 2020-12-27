@@ -1,0 +1,7 @@
+.mass-problem-section{
+	display: flex;
+	@media only screen and (max-width: $bp-medium){
+		display: block;
+		padding: 20px;
+	}
+}

@@ -1,0 +1,45 @@
+.users-table{
+
+	padding: 1em;
+	text-align: center;
+	table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid gray;
+  font-size: 1.6rem;
+  color: $color-dark;
+  &__chosen{
+    background:#AAA;
+  }
+  &__summary{
+  	
+
+	font-size: 2rem;
+  }
+  &__head-row{
+  	border: 1px solid gray;
+  	font-size: 1.6rem;
+   
+  }
+  &__body-row{
+    &:nth-child(even){background-color: #ccc;}
+  }
+  &__head-data, &__body-data{
+  	overflow: hidden;
+  	 padding: 0 10px 3px;
+  }
+  &__head-data{
+   &:hover{
+      cursor: pointer;
+      background:#AAA;
+    }  
+  }
+  &__body{
+  	font-size: 1.6rem;
+  	overflow-y: auto;
+  	
+  }
+  &users-table__num{
+  	font-size: 1.2rem;
+  }
+}

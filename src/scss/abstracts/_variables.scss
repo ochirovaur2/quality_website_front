@@ -1,0 +1,130 @@
+/* COLOR VARIABLES */
+
+$color-primary:#D2F1DF;
+$color-primary-shadow: #41a66b;
+///
+$color-header: #8BCB46;
+
+
+// Rating colors
+
+$color-5: #83CC06;
+$color-4: #D0E78F ;
+$color-3: #BDEBE0 ;
+$color-2: #F3C801;
+$color-1: #EC432E;
+
+
+
+//
+//312F2F
+// 996633
+//32CED6
+//8FD317
+$color-primary: #55c57a;
+$color-primary-dark: #28b485;
+$color-primary-light: #7ed56f;
+
+$color-light-1: #f7f7f7;
+$color-light-secondary: #eee;
+$color-dark: #000;
+$color-footer: #333333;
+
+$color-secondary-light: #EA4436;
+$color-secondary-dark: #cf3c30;
+
+$color-tertiary-light: #2998ff;
+$color-tertiary-dark: #5643fa;
+
+
+
+$default-font-size: 1.6rem;
+
+$transition-speed: 0.2s;
+
+$skewY-primary: skewY(-5deg);
+$skewY-primary-opposite: skewY(5deg);
+$color-secondary:#66CCFF;
+$color-secondary:#3D8A4F;
+$color-tertiary: #E0BE95;
+$color-forth: #8FD317;
+$color-five: #4BA1ED;
+$color-error: #EA4436;
+$color-grey-light-1: #F4F2F2;
+$color-grey-light-2: #aaa;
+
+$color-light-1:#F6FCFF;
+$color-dark-1:  #43484D;;
+$color-grey-dark-1: #54483A;
+$color-grey-dark-2: #6D5D4B;
+$color-sell: #F26065;
+
+/* header */
+$header-bg: #87509c;
+$nav-link-bg: #643a79;
+$nav-height: 8.9rem;
+
+/* service-section */
+$services-bg: #17c2a4;
+
+/* team-section */
+$team-bg: #e7f1f8;
+$team-color: #3c4761;
+
+$btn-primary-bg: #eb7d4b;
+/* /COLOR VARIABLES */
+
+/* FONT VARIABLES */
+
+// $font-primary: 'Bebas Neue', cursive;
+$font-primary:  sans-serif;
+
+// $font-primary: 'Cormorant Infant', serif;
+// $font-primary: 'Anonymous Pro', monospace;
+// $font-primary: 'Cormorant Unicase', serif;
+/* /FONT VARIABLES */
+
+/* Default font size */
+
+$default-font-size: 16px;
+
+/* /Default font size */
+
+/* Container max-width */
+
+$max-width: 130rem;
+
+/* Body min-width */
+
+$min-width: 20rem;    // 320px;
+
+/* /Body min-width */
+
+/* /Container max-width */
+
+/* RESPONSIVE BREAKPOINTS (width) */
+
+$bp-largest: 75em;   // 1200px;
+$bp-large: 62.5em;   // 1000px;
+$bp-medium: 48em;    // 768px;
+$bp-small: 37.5em;    // 600px;
+$bp-extra-small: 21em;    // 336px;
+
+/* /RESPONSIVE BREAKPOINTS (width) */
+
+/* RESPONSIVE BREAKPOINTS (height) */
+
+$bp-height-normal: 37.5em;   // 600px;
+
+/* /RESPONSIVE BREAKPOINTS (height) */
+
+
+/* Transition speed */
+
+$transition-speed: 0.3s;
+$transition-speed-nav: 0.4s;
+
+/* /Transition speed */
+
+
+

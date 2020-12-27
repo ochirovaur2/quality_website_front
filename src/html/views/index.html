@@ -1,0 +1,48 @@
+<% var data = {
+  title: "Оценка качества"
+  }; %>
+<%= _.template(require('./../includes/header.html').default)(data) %>
+
+
+
+<!-- Main -->
+	
+	<div class="container" >
+		
+		<h1 class="heading-primary u-center-text my-normal">Оцените нашу работу</h1>
+
+		<form action="#" class="rating-form">
+
+
+			<div class="rating-form__stars my-normal">
+
+				<fieldset class="rating">
+			    
+				    <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
+				    <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+				    <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
+				    <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
+				    <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Bad">1 star</label>
+				</fieldset>
+
+			</div>
+			<div class="rating-form__div my-normal">
+				<textarea  class="rating-form__textarea" placeholder="Ваш отзыв" id="comment" rows="4" ></textarea> 
+		        <label for="name" class="rating-form__label">Ваш отзыв</label>
+				
+			</div>
+			
+			<div class="rating-form__btn my-big">
+	            <button class="btn btn_primary-color btn_animated " id='btn-js'>
+	                Отправить →
+	            </button>
+	        </div>
+		</form>
+		
+	</div>
+	
+	
+
+
+
+<%= _.template(require('./../includes/footer.html').default)(data) %>

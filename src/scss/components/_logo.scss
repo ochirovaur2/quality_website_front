@@ -1,0 +1,17 @@
+.logo {
+	display: flex;
+	align-items: center;
+	/* .logo__img */
+	&__img {
+		height:  60px;
+		max-width: 100%;
+		background: $color-light-1;
+		border-radius: 10px;
+		@media only screen and (max-width: $bp-large){
+			height:  40px;
+			
+		}
+	}
+	
+	
+}

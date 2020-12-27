@@ -1,0 +1,39 @@
+.comments{
+	&__item{
+		border-bottom: 1px solid gray;
+		margin-bottom: 20px;
+		padding: 10px;
+	}
+	&__header{
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 10px;
+	}
+	&__left{
+		display: flex;
+		
+	}
+	&__rating{
+		margin-right: 10px;
+
+	}
+	&__user{
+		
+	}
+	&__link{
+		
+	}
+	&__issue{
+
+	}
+	&__right{
+		color: black;
+	}
+	&__comment{
+
+	}
+	&__date{
+		display: flex;
+		justify-content: flex-end;
+	}
+}
