@@ -1,7 +1,15 @@
-# psd-with-new-template
+# <h3 align="center">Admin panel of NPS Feedback site front part</h3>
 
 
-In this project were used: BEM, Webpack, 7-1 SASS
 
-<br> 
-psd template: https://ochirovaur2.github.io/psd-with-new-template/dist/index.html
+## Short description
+Front part of admin panel of NPS website:
+https://nps.cdek.ru/
+
+
+
+
+
+## Bugs and feature requests
+
+Have a bug or a feature request? Please send email to a.ochirov@cdek.ru or ochirovaur2@mail.ru
