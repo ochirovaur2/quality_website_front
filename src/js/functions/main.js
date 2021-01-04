@@ -65,11 +65,11 @@ export function main(){
 
     let chart = new Chart();
 
-    chart.getChartByUser ( chart.sendXhrReq(time, postUrl, user,rating,  'get_charts_by_user/') );
-    chart.getChartLineMain ( chart.sendXhrReq(time, postUrl, user,rating,  'get_main_chart/') );
-    chart.getPieChart ( chart.sendXhrReq(time, postUrl, user,rating,  'get_main_pie_chart/') );
-    chart.getMainTable ( chart.sendXhrReq(time, postUrl, user,rating,  'get_main_user_table/') );
-    chart.getTotalRating ( chart.sendXhrReq(time, postUrl, user,rating,  'get_total_rating/') );
+    chart.getChartByUser ( chart.sendXhrReq(time, postUrl, user,rating,  'api/get_charts_by_user/') );
+    chart.getChartLineMain ( chart.sendXhrReq(time, postUrl, user,rating,  'api/get_main_chart/') );
+    chart.getPieChart ( chart.sendXhrReq(time, postUrl, user,rating,  'api/get_main_pie_chart/') );
+    chart.getMainTable ( chart.sendXhrReq(time, postUrl, user,rating,  'api/get_main_user_table/') );
+    chart.getTotalRating ( chart.sendXhrReq(time, postUrl, user,rating,  'api/get_total_rating/') );
 
 
 

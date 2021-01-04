@@ -266,7 +266,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 2rem 0; }
 
 .my-big {
-  margin: 3rem 0; }
+  margin: 4rem 0; }
 
 .my-extrabig {
   margin: 6rem 0; }
@@ -868,14 +868,14 @@ template {
   top: -9999px;
   clip: rect(0, 0, 0, 0); }
 
-.rating:not(:checked) > label {
+.rating:not(:checked) .stars__label {
   float: right;
   width: 1em;
   padding: 0 .1em;
   overflow: hidden;
   white-space: nowrap;
   cursor: pointer;
-  font-size: 230%;
+  font-size: 600%;
   line-height: 1.2;
   color: #ddd;
   text-shadow: 1px 1px #bbb, 2px 2px #666, 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5); }

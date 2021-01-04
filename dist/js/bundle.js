@@ -4819,11 +4819,11 @@ function main() {
   var rating = 5;
   var postUrl = window.location.protocol + "//" + window.location.host + "/" + 'admin_panel/';
   var chart = new _classes_Chart_js__WEBPACK_IMPORTED_MODULE_9__["Chart"]();
-  chart.getChartByUser(chart.sendXhrReq(time, postUrl, user, rating, 'get_charts_by_user/'));
-  chart.getChartLineMain(chart.sendXhrReq(time, postUrl, user, rating, 'get_main_chart/'));
-  chart.getPieChart(chart.sendXhrReq(time, postUrl, user, rating, 'get_main_pie_chart/'));
-  chart.getMainTable(chart.sendXhrReq(time, postUrl, user, rating, 'get_main_user_table/'));
-  chart.getTotalRating(chart.sendXhrReq(time, postUrl, user, rating, 'get_total_rating/')); // django pagination for comments
+  chart.getChartByUser(chart.sendXhrReq(time, postUrl, user, rating, 'api/get_charts_by_user/'));
+  chart.getChartLineMain(chart.sendXhrReq(time, postUrl, user, rating, 'api/get_main_chart/'));
+  chart.getPieChart(chart.sendXhrReq(time, postUrl, user, rating, 'api/get_main_pie_chart/'));
+  chart.getMainTable(chart.sendXhrReq(time, postUrl, user, rating, 'api/get_main_user_table/'));
+  chart.getTotalRating(chart.sendXhrReq(time, postUrl, user, rating, 'api/get_total_rating/')); // django pagination for comments
 
   $(".django-pagination-js").click(function (e) {
     e.preventDefault();
