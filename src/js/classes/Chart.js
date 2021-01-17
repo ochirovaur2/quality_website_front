@@ -138,6 +138,28 @@ export class Chart  {
 	};
   };
 
+  getTotalAverageOfRating(xhr){
+  	xhr.onreadystatechange = function() { // (3)
+  		console.log(xhr.responseText)
+	  if (xhr.readyState != 4) return;
+
+	  if (xhr.status == 200) {
+
+	 
+	    let response = JSON.parse(xhr.responseText);
+	    var totalHTML = document.getElementById('average-total-js');
+
+		totalHTML.innerHTML = `Средний бал: ${response['average']}` ;
+		
+
+	  } else {
+
+	    console.log(xhr.status + ': ' + xhr.statusText)
+	    };
+	    
+	};
+  };
+
   getPieChart(xhr){
 	  	xhr.onreadystatechange = function() { // (3)
 	  		console.log(xhr.responseText)

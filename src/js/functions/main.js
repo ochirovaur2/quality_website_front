@@ -3,6 +3,7 @@ import '../vendors/datepicker.js';
 import '../vendors/custom-select.js';
 import { Chart } from '../classes/Chart.js';
 import { monkey } from './monkey.js';
+import { news } from './news.js';
 import { sortTable } from '../functions/sort-table.js';
 import '../functions/sendCustomDateUserFunc.js';
 import { toggleClass } from './toggleClass.js'
@@ -28,6 +29,10 @@ export function main(){
 	// random monkey
 	monkey()
 	// random monkey
+
+	// news 
+	news()
+	// news
 
 	// requests
 	let user = '';
@@ -70,8 +75,13 @@ export function main(){
     chart.getPieChart ( chart.sendXhrReq(time, postUrl, user,rating,  'api/get_main_pie_chart/') );
     chart.getMainTable ( chart.sendXhrReq(time, postUrl, user,rating,  'api/get_main_user_table/') );
     chart.getTotalRating ( chart.sendXhrReq(time, postUrl, user,rating,  'api/get_total_rating/') );
+    chart.getTotalAverageOfRating ( chart.sendXhrReq(time, postUrl, user,rating,  'api/get_total_average_of_rating/') );
+    
+    // show/hide diagram
 
+	toggleClass(time, postUrl, user,rating,  'api/get_charts_by_user/')
 
+	// show/hide diagram
 
 	// django pagination for comments
 	$(".django-pagination-js").click(function(e){
@@ -104,8 +114,6 @@ export function main(){
 	// End Change main header 	
 	
 
-	// show/hide diagram
-
-	toggleClass(time, postUrl, user,rating,  'get_charts_by_user/')
+	
 
 };

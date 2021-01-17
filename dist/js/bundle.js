@@ -4543,6 +4543,25 @@ function () {
       };
     }
   }, {
+    key: "getTotalAverageOfRating",
+    value: function getTotalAverageOfRating(xhr) {
+      xhr.onreadystatechange = function () {
+        // (3)
+        console.log(xhr.responseText);
+        if (xhr.readyState != 4) return;
+
+        if (xhr.status == 200) {
+          var response = JSON.parse(xhr.responseText);
+          var totalHTML = document.getElementById('average-total-js');
+          totalHTML.innerHTML = "\u0421\u0440\u0435\u0434\u043D\u0438\u0439 \u0431\u0430\u043B: ".concat(response['average']);
+        } else {
+          console.log(xhr.status + ': ' + xhr.statusText);
+        }
+
+        ;
+      };
+    }
+  }, {
     key: "getPieChart",
     value: function getPieChart(xhr) {
       xhr.onreadystatechange = function () {
@@ -4754,9 +4773,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _vendors_custom_select_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../vendors/custom-select.js */ "./src/js/vendors/custom-select.js");
 /* harmony import */ var _classes_Chart_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../classes/Chart.js */ "./src/js/classes/Chart.js");
 /* harmony import */ var _monkey_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./monkey.js */ "./src/js/functions/monkey.js");
-/* harmony import */ var _functions_sort_table_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../functions/sort-table.js */ "./src/js/functions/sort-table.js");
-/* harmony import */ var _functions_sendCustomDateUserFunc_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../functions/sendCustomDateUserFunc.js */ "./src/js/functions/sendCustomDateUserFunc.js");
-/* harmony import */ var _toggleClass_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./toggleClass.js */ "./src/js/functions/toggleClass.js");
+/* harmony import */ var _news_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./news.js */ "./src/js/functions/news.js");
+/* harmony import */ var _functions_sort_table_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../functions/sort-table.js */ "./src/js/functions/sort-table.js");
+/* harmony import */ var _functions_sendCustomDateUserFunc_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../functions/sendCustomDateUserFunc.js */ "./src/js/functions/sendCustomDateUserFunc.js");
+/* harmony import */ var _toggleClass_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./toggleClass.js */ "./src/js/functions/toggleClass.js");
+
 
 
 
@@ -4779,7 +4800,7 @@ function main() {
     $(".sort-table-js").click(function () {
       f_sl *= -1;
       var n = $(this).prevAll().length;
-      Object(_functions_sort_table_js__WEBPACK_IMPORTED_MODULE_11__["sortTable"])(f_sl, n);
+      Object(_functions_sort_table_js__WEBPACK_IMPORTED_MODULE_12__["sortTable"])(f_sl, n);
       $(".users-table__head-data").removeClass("users-table__chosen");
       $(this).addClass("users-table__chosen");
     });
@@ -4788,6 +4809,9 @@ function main() {
 
 
   Object(_monkey_js__WEBPACK_IMPORTED_MODULE_10__["monkey"])(); // random monkey
+  // news 
+
+  Object(_news_js__WEBPACK_IMPORTED_MODULE_11__["news"])(); // news
   // requests
 
   var user = '';
@@ -4823,7 +4847,11 @@ function main() {
   chart.getChartLineMain(chart.sendXhrReq(time, postUrl, user, rating, 'api/get_main_chart/'));
   chart.getPieChart(chart.sendXhrReq(time, postUrl, user, rating, 'api/get_main_pie_chart/'));
   chart.getMainTable(chart.sendXhrReq(time, postUrl, user, rating, 'api/get_main_user_table/'));
-  chart.getTotalRating(chart.sendXhrReq(time, postUrl, user, rating, 'api/get_total_rating/')); // django pagination for comments
+  chart.getTotalRating(chart.sendXhrReq(time, postUrl, user, rating, 'api/get_total_rating/'));
+  chart.getTotalAverageOfRating(chart.sendXhrReq(time, postUrl, user, rating, 'api/get_total_average_of_rating/')); // show/hide diagram
+
+  Object(_toggleClass_js__WEBPACK_IMPORTED_MODULE_14__["toggleClass"])(time, postUrl, user, rating, 'api/get_charts_by_user/'); // show/hide diagram
+  // django pagination for comments
 
   $(".django-pagination-js").click(function (e) {
     e.preventDefault();
@@ -4849,10 +4877,7 @@ function main() {
   } else {
     header.innerHTML = "\u0421\u0442\u0430\u0442\u0438\u0441\u0442\u0438\u043A\u0430 \u0437\u0430 ".concat(dict[time], " ").concat(userName);
   } // End Change main header 	
-  // show/hide diagram
 
-
-  Object(_toggleClass_js__WEBPACK_IMPORTED_MODULE_13__["toggleClass"])(time, postUrl, user, rating, 'get_charts_by_user/');
 }
 ;
 
@@ -4880,6 +4905,37 @@ function monkey() {
     setTimeout(function () {
       $(".monkey").css("display", "none");
     }, 10000);
+  }
+}
+
+/***/ }),
+
+/***/ "./src/js/functions/news.js":
+/*!**********************************!*\
+  !*** ./src/js/functions/news.js ***!
+  \**********************************/
+/*! exports provided: news */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "news", function() { return news; });
+function news() {
+  var flag = 0;
+
+  if (localStorage.getItem('news-js')) {
+    flag = localStorage.getItem('news-js');
+  }
+
+  if (flag == 0) {
+    var _news = document.getElementById('news-js');
+
+    _news.style.display = "block";
+
+    _news.onclick = function () {
+      _news.style.display = "none";
+      localStorage.setItem('news-js', JSON.stringify(1));
+    };
   }
 }
 

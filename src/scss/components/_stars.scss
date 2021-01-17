@@ -1,59 +1,56 @@
 .rating {
-    display: flex;
-    justify-content: center;
-    flex-direction: row-reverse;
-}
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse; }
 
 /* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
    follow these rules. Every browser that supports :checked also supports :not(), so
    it doesn’t make the test unnecessarily selective */
 .rating:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
-    clip:rect(0,0,0,0);
-}
+  position: absolute;
+  top: -9999px;
+  clip: rect(0, 0, 0, 0); }
 
-
-
-.rating:not(:checked) .stars__label{
-    float:right;
-    width:1em;
-    padding:0 .1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size: 600%;
-    line-height:1.2;
-    color:#ddd;
-    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
-}
+.rating:not(:checked) > label {
+  float: right;
+  width: 1em;
+  padding: 0 .1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 230%;
+  line-height: 1.2;
+  color: #ddd;
+  text-shadow: 1px 1px #bbb, 2px 2px #666, 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5); }
 
 .rating:not(:checked) > label:before {
-    content: '★ ';
-}
+  content: '★ '; }
 
 .rating > input:checked ~ label {
-    color: $color-primary;
-    text-shadow:1px 1px $color-primary-shadow, 2px 2px $color-primary-shadow, .1em .1em .2em rgba(0,0,0,.5);
-}
+  color: #55c57a;
+  text-shadow: 1px 1px #41a66b, 2px 2px #41a66b, 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5); }
 
 .rating:not(:checked) > label:hover,
 .rating:not(:checked) > label:hover ~ label {
-   color: $color-primary;
-    text-shadow:1px 1px $color-primary-shadow, 2px 2px $color-primary-shadow, .1em .1em .2em rgba(0,0,0,.5);
-}
+  color: #55c57a;
+  text-shadow: 1px 1px #41a66b, 2px 2px #41a66b, 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5); }
 
 .rating > input:checked + label:hover,
 .rating > input:checked + label:hover ~ label,
 .rating > input:checked ~ label:hover,
 .rating > input:checked ~ label:hover ~ label,
 .rating > label:hover ~ input:checked ~ label {
-   color: $color-primary;
-    text-shadow:1px 1px $color-primary-shadow, 2px 2px $color-primary-shadow, .1em .1em .2em rgba(0,0,0,.5);
-}
+  color: #55c57a;
+  text-shadow: 1px 1px #41a66b, 2px 2px #41a66b, 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5); }
 
 .rating > label:active {
-    position:relative;
-    top:2px;
-    left:2px;
-}
+  position: relative;
+  top: 2px;
+  left: 2px; }
