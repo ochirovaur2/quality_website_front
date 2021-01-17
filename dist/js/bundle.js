@@ -4746,6 +4746,122 @@ function () {
 
 /***/ }),
 
+/***/ "./src/js/classes/Export.js":
+/*!**********************************!*\
+  !*** ./src/js/classes/Export.js ***!
+  \**********************************/
+/*! exports provided: Export */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Export", function() { return Export; });
+/* harmony import */ var core_js_modules_es_array_concat__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.concat */ "./node_modules/core-js/modules/es.array.concat.js");
+/* harmony import */ var core_js_modules_es_array_concat__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_concat__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_es_date_to_string__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.date.to-string */ "./node_modules/core-js/modules/es.date.to-string.js");
+/* harmony import */ var core_js_modules_es_date_to_string__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_date_to_string__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_es_object_define_property__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.object.define-property */ "./node_modules/core-js/modules/es.object.define-property.js");
+/* harmony import */ var core_js_modules_es_object_define_property__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_define_property__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Export =
+/*#__PURE__*/
+function () {
+  function Export() {
+    _classCallCheck(this, Export);
+
+    this.rating = 5;
+    this.user = '';
+    this.dates = 'month';
+    this.email = null;
+  }
+
+  _createClass(Export, [{
+    key: "sendXhrReq",
+    value: function sendXhrReq(postUrl, djangoPath) {
+      var xhr = new XMLHttpRequest();
+      var send_flag = true;
+      var myDatepicker = $('#datepicker').datepicker({
+        dateFormat: 'dd.mm.yyyy'
+      }).data('datepicker');
+      this.email = document.getElementById('export-email-js').value;
+
+      if (!this.email) {
+        send_flag = false;
+        alert('Пожалуйста, заполните почту');
+      }
+
+      console.log(Date.parse(String(myDatepicker.selectedDates[0])));
+
+      if (!Date.parse(String(myDatepicker.selectedDates[0]))) {
+        send_flag = false;
+        alert('Пожалуйста, выберите даты');
+      }
+
+      if (send_flag) {
+        if ($("#select-js").val()) {
+          this.user = $("#select-js").val();
+        }
+
+        ;
+
+        if (myDatepicker.selectedDates[1]) {
+          this.dates = "".concat(Date.parse(String(myDatepicker.selectedDates[0])), "+").concat(Date.parse(String(myDatepicker.selectedDates[1])));
+        } else if (myDatepicker.selectedDates[0]) {
+          this.dates = "".concat(Date.parse(String(myDatepicker.selectedDates[0])));
+        }
+
+        if ($(".side-nav__form input[type='radio']:checked")) {
+          this.rating = $(".side-nav__form input[type='radio']:checked").val();
+        }
+
+        postUrl = postUrl + djangoPath + this.email + '/' + this.dates + '/' + this.rating + '/';
+
+        if (this.user != '') {
+          postUrl = postUrl + this.user + '/';
+        }
+
+        xhr.open('POST', postUrl, true);
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhr.send();
+      }
+
+      return xhr;
+    }
+  }, {
+    key: "exportComments",
+    value: function exportComments(xhr) {
+      if (xhr) {
+        xhr.onreadystatechange = function () {
+          // (3)
+          console.log(xhr.responseText);
+          if (xhr.readyState != 4) return;
+
+          if (xhr.status == 200) {
+            alert('Письмо отправлено!');
+          } else {
+            alert('Произошла ошибка!');
+          }
+        };
+
+        $(".monkey").css("display", "none");
+      }
+    }
+  }]);
+
+  return Export;
+}();
+
+/***/ }),
+
 /***/ "./src/js/functions/main.js":
 /*!**********************************!*\
   !*** ./src/js/functions/main.js ***!
@@ -4777,6 +4893,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _functions_sort_table_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../functions/sort-table.js */ "./src/js/functions/sort-table.js");
 /* harmony import */ var _functions_sendCustomDateUserFunc_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../functions/sendCustomDateUserFunc.js */ "./src/js/functions/sendCustomDateUserFunc.js");
 /* harmony import */ var _toggleClass_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./toggleClass.js */ "./src/js/functions/toggleClass.js");
+/* harmony import */ var _classes_Export_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../classes/Export.js */ "./src/js/classes/Export.js");
+
 
 
 
@@ -4834,13 +4952,18 @@ function main() {
     '365': '365 дней'
   };
   var time = document.getElementById('time-js').dataset.time;
+  var rating = 5;
+
+  if (document.getElementById('rating-js')) {
+    rating = document.getElementById('rating-js').dataset.rating;
+  }
+
   var userName = '';
 
   if (document.getElementById('user-js')) {
     userName = "(".concat(document.getElementById('user-js').dataset.user, ")");
   }
 
-  var rating = 5;
   var postUrl = window.location.protocol + "//" + window.location.host + "/" + 'admin_panel/';
   var chart = new _classes_Chart_js__WEBPACK_IMPORTED_MODULE_9__["Chart"]();
   chart.getChartByUser(chart.sendXhrReq(time, postUrl, user, rating, 'api/get_charts_by_user/'));
@@ -4876,8 +4999,16 @@ function main() {
     header.innerHTML = "\u0421\u0442\u0430\u0442\u0438\u0441\u0442\u0438\u043A\u0430 ".concat(time, " ").concat(userName);
   } else {
     header.innerHTML = "\u0421\u0442\u0430\u0442\u0438\u0441\u0442\u0438\u043A\u0430 \u0437\u0430 ".concat(dict[time], " ").concat(userName);
-  } // End Change main header 	
+  } // End Change main header
 
+
+  document.getElementById('export-btn-js').onclick = function (e) {
+    $(".monkey").css("display", "block");
+    e.preventDefault();
+    var export_inst = new _classes_Export_js__WEBPACK_IMPORTED_MODULE_15__["Export"]();
+    var postUrl = window.location.protocol + "//" + window.location.host + "/" + 'export/';
+    export_inst.exportComments(export_inst.sendXhrReq(postUrl, 'api/export_comments/'));
+  };
 }
 ;
 
@@ -4923,8 +5054,8 @@ __webpack_require__.r(__webpack_exports__);
 function news() {
   var flag = 0;
 
-  if (localStorage.getItem('news-js')) {
-    flag = localStorage.getItem('news-js');
+  if (localStorage.getItem('news-1-js')) {
+    flag = localStorage.getItem('news-1-js');
   }
 
   if (flag == 0) {
@@ -4934,7 +5065,7 @@ function news() {
 
     _news.onclick = function () {
       _news.style.display = "none";
-      localStorage.setItem('news-js', JSON.stringify(1));
+      localStorage.setItem('news-1-js', JSON.stringify(1));
     };
   }
 }

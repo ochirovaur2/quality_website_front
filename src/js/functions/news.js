@@ -1,7 +1,7 @@
 export function news(){
 	let flag = 0;
-	if(localStorage.getItem('news-js') ){
-		flag = localStorage.getItem('news-js');
+	if(localStorage.getItem('news-1-js') ){
+		flag = localStorage.getItem('news-1-js');
 	}
 	if( flag == 0 ) {
 
@@ -10,7 +10,7 @@ export function news(){
 		news.onclick = function(){
 			news.style.display = "none";
 			
-			localStorage.setItem('news-js', JSON.stringify(1))
+			localStorage.setItem('news-1-js', JSON.stringify(1))
 				
 			
 		};

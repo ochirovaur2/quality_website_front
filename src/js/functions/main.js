@@ -7,6 +7,7 @@ import { news } from './news.js';
 import { sortTable } from '../functions/sort-table.js';
 import '../functions/sendCustomDateUserFunc.js';
 import { toggleClass } from './toggleClass.js'
+import {Export} from '../classes/Export.js';
 
 
 export function main(){
@@ -54,12 +55,17 @@ export function main(){
 	};
 	
 	let time = document.getElementById('time-js').dataset.time;
+	let rating = 5
+	if (document.getElementById('rating-js')) {
+		rating = document.getElementById('rating-js').dataset.rating;
+	}
+
 	let userName = '';
 	if (document.getElementById('user-js')) {
 		userName = `(${document.getElementById('user-js').dataset.user})`;
 	}
-
-	let rating = 5
+	
+	 
 
 	
 
@@ -111,7 +117,20 @@ export function main(){
 	}
 	
 	
-	// End Change main header 	
+	// End Change main header
+
+
+ 	document.getElementById('export-btn-js').onclick = function(e) {
+ 		$(".monkey").css("display","block");
+		
+	   	e.preventDefault()
+	    let export_inst = new Export();
+    	let postUrl = window.location.protocol + "//" + window.location.host + "/" + 'export/';
+    	
+		export_inst.exportComments(export_inst.sendXhrReq( postUrl, 'api/export_comments/'))
+	    
+	    
+	};
 	
 
 	
