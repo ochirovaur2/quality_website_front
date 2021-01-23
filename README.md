@@ -17,7 +17,6 @@ https://nps.cdek.ru/
 ## What's included
 
 ```text
-C:.
 |   .babelrc
 |   .gitignore
 |   debug.log
@@ -49,23 +48,17 @@ C:.
 |   |   |       cd-icon-select.svg
 |   |   |       cd-icons-cart-close.svg
 |   |   |
-|   |   +---logos
-|   |   |       footer_logo.png
-|   |   |       logo.jpg
-|   |   |       logo.svg
-|   |   |       logo001.png
-|   |   |       logo007.ico
-|   |   |       logo1.png
-|   |   |       logo12.jpg
-|   |   |       logo12.png
-|   |   |       oie_1705820ySJeWkaJ(1).png
-|   |   |       red.png
-|   |   |
-|   |   \---products
-|   |       \---arahis
-|   |               arahis1.jpg
-|   |               arahis2.jpg
-|   |               arahis3.jpg
+|   |   \---logos
+|   |           footer_logo.png
+|   |           logo.jpg
+|   |           logo.svg
+|   |           logo001.png
+|   |           logo007.ico
+|   |           logo1.png
+|   |           logo12.jpg
+|   |           logo12.png
+|   |           oie_1705820ySJeWkaJ(1).png
+|   |           red.png
 |   |
 |   \---js
 |           bundle.js
